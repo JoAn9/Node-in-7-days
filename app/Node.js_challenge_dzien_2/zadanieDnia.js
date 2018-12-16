@@ -2,12 +2,15 @@
 
 // Efekt będzie nieco przypominał nieprzystrzyżony trawnik ;) Np. plik z zawartością `Hello, World!` zamieni na `HeLlO, wOrLd!`.
 
+// Wykorzystaj wiedzę z dnia pierwszego i spraw, aby nazwa pliku do modyfikacji mogła być podawana jako argument Twojego programu Node.
+
+
 const fs = require('fs');
 
-fs.readFile('./data/zadanieDnia/test.txt', 'utf8', (error, data) => {
+fs.readFile(process.argv[2] || '' , 'utf8', (error, data) => {
   if (error === null) {
     let text = [];
-    for(let i=0; i<data.length; i++) {
+    for (i in data) {
       if (i % 2 === 0) text[i] = data[i].toUpperCase()
       else text[i] = data[i].toLowerCase();
     }
